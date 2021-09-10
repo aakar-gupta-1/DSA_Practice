@@ -23,6 +23,7 @@ public class Recursion {
     }
 
     public int fibonacci_tail(int n, int fib1, int fib2) {
+        if (n == 0) return 0;
         if (n == 1) return fib2;
 
         return fibonacci_tail(n - 1, fib2, fib2 + fib1);
@@ -34,9 +35,26 @@ public class Recursion {
         return linear_search(arr, n, i + 1);
     }
 
+    public void fibonacci_till_n(int n) {
+        for (int i = 1; i <= n; i++) {
+            System.out.println(fibonacci_tail(i, 1, 0));
+        }
+    }
+
+    public void fibonacci(int n) {
+        int a = 0;
+        int b = 1;
+        while (a <= n) {
+            System.out.println(a);
+            int temp = b;
+            b += a;
+            a = temp;
+        }
+
+    }
+
     public static void main(String[] args) {
         Recursion recursion = new Recursion();
-        System.out.println(recursion.fibonacci_head(10));
-        System.out.println(recursion.fibonacci_tail(10, 0, 1));
+        recursion.fibonacci(56);
     }
 }
